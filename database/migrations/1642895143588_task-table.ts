@@ -23,7 +23,7 @@ export async function up(pgm: MigrationBuilder): Promise<void> {
         parent_task_id: {
             type: "integer",
             references: "tasks",
-            referencesConstraintName: "tasks_parent_task_id_fkey",
+            referencesConstraintName: "tasks_task_id_fkey",
             onDelete: "SET NULL",
             onUpdate: "CASCADE",
             notNull: false,

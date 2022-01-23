@@ -7,21 +7,21 @@ export async function up(pgm: MigrationBuilder): Promise<void> {
     pgm.sql(`
         INSERT INTO 
         tasks 
-        (id, title, status, parent_task_id, created_at) 
+        (title, status, parent_task_id, created_at) 
         VALUES 
-        (1, 'Task 1', 'pending', NULL, now()), 
-        (2, 'Task 2', 'completed', NULL, now()),
-        (3, 'Task 3', 'completed', NULL, now()),
-        (4, 'Task 4', 'pending', NULL, now()),
-        (5, 'Subtask 1', 'pending', 1, now()),
-        (6, 'Subtask 2', 'pending', 1, now()),
-        (7, 'Subtask 3', 'pending', 1, now()),
-        (8, 'Subtask 4', 'pending', 1, now()),
-        (9, 'Subtask 5', 'pending', 1, now()),
-        (10, 'Subtask 1', 'completed', 2, now()),
-        (11, 'Subtask 2', 'pending', 2, now()),
-        (12, 'Subtask 3', 'completed', 2, now()),
-        (13, 'Subtask 1', 'completed', 3, now())
+        ('Task 1', 'pending', NULL, now()), 
+        ('Task 2', 'completed', NULL, now()),
+        ('Task 3', 'completed', NULL, now()),
+        ('Task 4', 'pending', NULL, now()),
+        ('Subtask 1', 'pending', 1, now()),
+        ('Subtask 2', 'pending', 1, now()),
+        ('Subtask 3', 'pending', 1, now()),
+        ('Subtask 4', 'pending', 1, now()),
+        ('Subtask 5', 'pending', 1, now()),
+        ('Subtask 1', 'completed', 2, now()),
+        ('Subtask 2', 'pending', 2, now()),
+        ('Subtask 3', 'completed', 2, now()),
+        ('Subtask 1', 'completed', 3, now())
     `)
 }
 
