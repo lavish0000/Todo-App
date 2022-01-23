@@ -20,14 +20,14 @@ const connection = initializeConnectionPool(db_config);
 
 export function executeQuery(event: string, queryString: string, params: any): Promise<QueryResult> {
 	return new Promise((resolve, reject) => {
-		const query = connection.query(queryString, params, function (err: Error, result: QueryResult<any>) {
+		connection.query(queryString, params, function (err: Error, result: QueryResult<any>) {
 			console.info('QUERY:' + event);
 			console.log(' --->', queryString.replace(/\n/g, ''));
 			if (err) {
 				console.error('ERROR:', err);
 				return reject({
 					ERROR: err,
-					QUERY: query,
+					QUERY: queryString,
 					Event: event,
 				});
 			}

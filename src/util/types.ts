@@ -21,3 +21,8 @@ export interface responseTypeInterface {
     message: string;
     status: number;
 }
+
+export enum TASK_STATUS {
+    PENDING = "pending",
+    COMPLETED = "completed",
+}

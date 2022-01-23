@@ -2,6 +2,7 @@ import { NextFunction, Request, Response } from 'express';
 import Joi from 'joi';
 import { RESPONSE_TYPES } from '../../util/constants';
 import { sendResponse } from '../../util/responses';
+import { TASK_STATUS } from '../../util/types';
 
 export const createTaskValidator = function (req: Request, res: Response, next: NextFunction) {
 
@@ -30,7 +31,7 @@ export const updateTaskValidator = function (req: Request, res: Response, next: 
 
     const schema = Joi.object().keys({
         id: Joi.number().integer().required(),
-        status: Joi.string().valid('completed').required(),
+        status: Joi.string().valid(TASK_STATUS.COMPLETED, TASK_STATUS.PENDING).required(),
     });
 
     const validation = schema.validate(req.body);
